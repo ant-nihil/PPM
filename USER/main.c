@@ -4,7 +4,7 @@
 #include "exit.h"
 #include "ppm.h"
 
-extern uint8_t Pulse_Width[9];
+extern uint16_t Pulse_Width[9];
 void PPM_Print_Pulse_Width(void);
 
 int main(void)
@@ -29,7 +29,7 @@ int main(void)
 void PPM_Print_Pulse_Width(void)
 {
 	uint8_t t;
-	for(t=0;t<9;t++)
+	for(t=0;t<8;t++)
 	{
 		printf("%d=%2d, ",t,Pulse_Width[t]);
 	}

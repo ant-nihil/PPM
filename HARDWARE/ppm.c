@@ -5,7 +5,7 @@ __IO uint16_t pwm_period=0;
 
 uint8_t P_W_count=0;
 
-uint8_t Pulse_Width[9];
+uint16_t Pulse_Width[9];
 //用TIM3的计时器来计数
 void TIM3_Init(u16 arr,u16 psc)
 {
@@ -87,9 +87,9 @@ void exit_handler(void)
 														EXTI->RTSR|=(0x0001<<10);//配置为上升沿触发中断
 														break;
 		case PWM_STATUS_FALLING:pwm_period=TIM3->CNT;
-								Pulse_Width[P_W_count]=Pwm_Duty_Cycle();
+								Pulse_Width[P_W_count]=pwm_duty;//Pwm_Duty_Cycle();
 								P_W_count++;//脉冲计数加一，该变量代表第几个脉冲
-								if(P_W_count==9) P_W_count=0;
+								if((P_W_count==9)&&(pwm_duty>2700)) P_W_count=0;
 														Def_PWM_Status=PWM_STATUS_RAISE;
 														TIM3->CNT=0;
 														EXTI->FTSR|=(0x0001<<10);//配置为下降沿触发中断

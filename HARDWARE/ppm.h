@@ -9,7 +9,7 @@ typedef enum {
 	PWM_STATUS_FALLING,  
 }pwm_status;
 
-extern uint8_t Pulse_Width[9];
+extern uint16_t Pulse_Width[9];
 
 void TIM3_Init(u16 arr,u16 psc);
 void EXTI10_Config(void);
