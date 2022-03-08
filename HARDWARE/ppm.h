@@ -12,7 +12,7 @@ typedef enum {
 extern uint16_t Pulse_Width[9];
 
 void TIM3_Init(u16 arr,u16 psc);
-void EXTI10_Config(void);
+void EXTILine_Config(void);
 void exit_handler(void);
 
 uint16_t Pwm_Duty_Cycle(void);
