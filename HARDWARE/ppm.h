@@ -1,7 +1,7 @@
 #ifndef __EXIT_H
 #define __EXIT_H
 
-#include "sys.h"
+#include "stm32f10x.h"
 
 typedef enum {
 	PWM_STATUS_NONE=0,
