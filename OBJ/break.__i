@@ -1,4 +1,0 @@
--c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE
--ID:\0.Professional-software\keil_MDK\Keil\STM32F1xx_DFP\2.3.0\Device\Include
--D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER
--o ..\obj\break.o --omf_browse ..\obj\break.crf --depend ..\obj\break.d "..\HARDWARE\break.c"
