@@ -16,7 +16,7 @@ int main(void)
 	TIM3_Init(50000,71);	//PWM捕获的计数器（每1ms计数1000）
 	EXTI10_Config();
 	TIM2_Pwm_Init(1000,71);  //TIM2输出PWM波的周期为20ms
-  while(1)
+	while(1)
 	{
 //		printf("%d\r\n",Pwm_Duty_Cycle());
 //		delay_ms(100);
