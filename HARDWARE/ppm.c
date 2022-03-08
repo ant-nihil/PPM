@@ -1,4 +1,4 @@
-#include "exit.h"
+#include "ppm.h"
 pwm_status Def_PWM_Status;
 __IO uint16_t pwm_duty=0;
 __IO uint16_t pwm_period=0;

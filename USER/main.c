@@ -1,7 +1,6 @@
 #include "sys.h"
 #include "delay.h"
 #include "usart.h"
-#include "exit.h"
 #include "ppm.h"
 
 extern uint16_t Pulse_Width[9];
