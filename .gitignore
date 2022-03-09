@@ -3,7 +3,7 @@ OBJ/
 USER/DebugConfig/
 USER/Listings/
 
-USER/IOT.uvoptx
+*.uvoptx
 USER/IOT.uvguix.Nihil
 USER/JLinkLog.txt
 USER/JLinkSettings.ini
