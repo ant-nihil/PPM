@@ -2,24 +2,23 @@
 #include "delay.h"
 #include "usart.h"
 #include "ppm.h"
+#include "exti.h"
 
-extern uint16_t Pulse_Width[9];
 void PPM_Print_Pulse_Width(void);
 
 int main(void)
 {
-
-
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
  	delay_init();
 	uart_init(115200);
-	TIM3_Init(50000,71);	//PWM捕获的计数器（每1ms计数1000）
-	EXTI10_Config();
-	TIM2_Pwm_Init(1000,71);  //TIM2输出PWM波的周期为20ms
+
+	ppm_set_counter();	//PWM捕获的计数器（每1ms计数1000）
+	ppm_set_io_config();
+	ppm_set_test_pwm(1000,71);  //输出PWM波的周期为20ms
+
+	printf("\r\ncode start\r\n");
 	while(1)
 	{
-//		printf("%d\r\n",Pwm_Duty_Cycle());
-//		delay_ms(100);
 		PPM_Print_Pulse_Width();
 	}
 	
@@ -30,8 +29,18 @@ void PPM_Print_Pulse_Width(void)
 	uint8_t t;
 	for(t=0;t<8;t++)
 	{
-		printf("%d=%2d, ",t,Pulse_Width[t]);
+		printf("w%d=%4d , ",t,get_pulse_width()[t]);//打印通道脉冲宽度，单位us
 	}
+//	printf("\r\n");
+//	for(t=0;t<8;t++)
+//	{
+//		printf("d%d=%.3f, ",t,get_duty_cycle()[t]);//打印各个通道占舵机标准周期的占空比
+//	}
+//	printf("\r\n");
+//	for(t=0;t<8;t++)
+//	{
+//		printf("p%d=%4d , ",t,get_period()[t]);//打印一高一低的PWM的小周期，单位us
+//	}
 	delay_ms(1000);
 	printf("\r\n");
 }

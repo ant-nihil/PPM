@@ -563,6 +563,11 @@
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\ppm.c</FilePath>
             </File>
+            <File>
+              <FileName>exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\exti.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
