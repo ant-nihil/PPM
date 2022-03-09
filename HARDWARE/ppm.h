@@ -3,26 +3,18 @@
 
 #include "stm32f10x.h"
 
+#define MAX_PULSE_WIDTH 2100
+
 typedef enum {
-	PWM_STATUS_NONE=0,
 	PWM_STATUS_RAISE,    
 	PWM_STATUS_FALLING,  
-}pwm_status;
+}pwm_status_t; 
 
-extern uint16_t Pulse_Width[9];
+void exti_handler(void);//IO中断处理函数
 
-void TIM3_Init(u16 arr,u16 psc);
-void EXTILine_Config(void);
-void exit_handler(void);
+uint16_t* get_pulse_width(void);//得到单位为us的脉冲宽度
+float* get_duty_cycle(void);//得到以20ms为周期的占空比
 
-uint16_t Pwm_Duty_Cycle(void);
-uint16_t Pwm_Period(void);
-uint32_t Pwm_Fre(void);
-uint16_t Pwm_Pulse_Width(void);
-
-void PPM_Check(void);
-
-void TIM2_Pwm_Init(u16 arr,u16 psc);
-
+uint16_t* get_period(void);//得到一高电平一低电平的周期，在读取PPM时用不到，用于调试
 
 #endif
